@@ -15,6 +15,6 @@ public class ConfigClientController {
     return this.profile;
   }
   public void test(){
-     String str = "";
+
   }
 }
