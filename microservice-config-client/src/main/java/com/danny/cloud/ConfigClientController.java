@@ -14,4 +14,9 @@ public class ConfigClientController {
   public String getProfile() {
     return this.profile;
   }
+
+  public void test(){
+
+  }
+
 }
