@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon
+#  cloud:
+#    loadbalancer:
+#      retry:
+#        enabled: true   #开启重试机制，默认关闭
+server:
+  port: 8010
+eureka:
+  client:
+    healthcheck:
+      enabled: true   #开启健康检查（需要spring-boot-starter-actuator依赖）
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+security:
+  basic:
+    enabled: true
+  user:
+    name: ribbon
+    password: ribbon

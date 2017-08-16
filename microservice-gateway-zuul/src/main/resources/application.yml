@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: microservice-gateway-zuul
+  mvc:
+    view:
+      prefix:
+server:
+  port: 8040
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password123@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+#zuul:
+#  routes:
+#    microservice-provider-user: /user/**
+##    microservice-consumer-movie-ribbon-with-hystrix: /m/**
+#  ignoredServices: '*'
+##  ignoredServices: microservice-consumer-movie-ribbon-with-hystrix
+
+#zuul:
+#  routes:
+#    abc:
+#      path: /user-path/**
+##      serviceId: microservice-provider-user
+#      url: http://127.0.0.1:7900/
+
+management:
+  security:
+    enabled: false

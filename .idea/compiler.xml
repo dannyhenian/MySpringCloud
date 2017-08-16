@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="compute-service" />
+        <module name="eureka-feign" />
+        <module name="eureka-ribbon" />
+        <module name="eureka-server" />
+        <module name="microservice-config-client" />
+        <module name="microservice-config-server" />
+        <module name="microservice-config-server-authc" />
+        <module name="microservice-config-server-encrypt" />
+        <module name="microservice-config-server-encrypt-rsa" />
+        <module name="microservice-config-server-eureka" />
+        <module name="microservice-consumer-movie" />
+        <module name="microservice-consumer-movie-feign" />
+        <module name="microservice-consumer-movie-feign-customizing" />
+        <module name="microservice-consumer-movie-feign-customizing-without-hystrix" />
+        <module name="microservice-consumer-movie-feign-with-hystrix" />
+        <module name="microservice-consumer-movie-feign-with-hystrix-hystrix-factory" />
+        <module name="microservice-consumer-movie-ribbon" />
+        <module name="microservice-consumer-movie-ribbon-properties-customizing" />
+        <module name="microservice-consumer-movie-ribbon-test" />
+        <module name="microservice-consumer-movie-ribbon-with-hystrix" />
+        <module name="microservice-consumer-movie-ribbon-with-hystrix-propagation" />
+        <module name="microservice-consumer-movie-ribbon-without-eureka" />
+        <module name="microservice-discovery-eureka" />
+        <module name="microservice-discovery-eureka-ha" />
+        <module name="microservice-file-upload" />
+        <module name="microservice-gateway-zuul" />
+        <module name="microservice-gateway-zuul-fallback" />
+        <module name="microservice-gateway-zuul-filter" />
+        <module name="microservice-gateway-zuul-reg-exp" />
+        <module name="microservice-hystrix-dashboard" />
+        <module name="microservice-hystrix-turbine" />
+        <module name="microservice-provider-user" />
+        <module name="microservice-simple-consumer-movie" />
+        <module name="microservice-simple-provider-user" />
+        <module name="microservicegatewayzuul" />
+        <module name="mySpringBootDemo1" />
+        <module name="spring-boot-api-project-seed" />
+        <module name="springBoot-Mybatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="compute-service" target="1.8" />
+      <module name="config-learning" target="1.8" />
+      <module name="eureka-feign" target="1.8" />
+      <module name="eureka-ribbon" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="microservice-config-client" target="1.8" />
+      <module name="microservice-config-server" target="1.8" />
+      <module name="microservice-config-server-authc" target="1.8" />
+      <module name="microservice-config-server-encrypt" target="1.8" />
+      <module name="microservice-config-server-encrypt-rsa" target="1.8" />
+      <module name="microservice-config-server-eureka" target="1.8" />
+      <module name="microservice-consumer-movie" target="1.8" />
+      <module name="microservice-consumer-movie-feign" target="1.8" />
+      <module name="microservice-consumer-movie-feign-customizing" target="1.8" />
+      <module name="microservice-consumer-movie-feign-customizing-without-hystrix" target="1.8" />
+      <module name="microservice-consumer-movie-feign-with-hystrix" target="1.8" />
+      <module name="microservice-consumer-movie-feign-with-hystrix-hystrix-factory" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-properties-customizing" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-test" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-with-hystrix" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-with-hystrix-propagation" target="1.8" />
+      <module name="microservice-consumer-movie-ribbon-without-eureka" target="1.8" />
+      <module name="microservice-discovery-eureka" target="1.8" />
+      <module name="microservice-discovery-eureka-ha" target="1.8" />
+      <module name="microservice-file-upload" target="1.8" />
+      <module name="microservice-gateway-zuul" target="1.8" />
+      <module name="microservice-gateway-zuul-fallback" target="1.8" />
+      <module name="microservice-gateway-zuul-filter" target="1.8" />
+      <module name="microservice-gateway-zuul-reg-exp" target="1.8" />
+      <module name="microservice-hystrix-dashboard" target="1.8" />
+      <module name="microservice-hystrix-turbine" target="1.8" />
+      <module name="microservice-provider-user" target="1.8" />
+      <module name="microservice-simple-consumer-movie" target="1.8" />
+      <module name="microservice-simple-provider-user" target="1.8" />
+      <module name="microservicegatewayzuul" target="1.8" />
+      <module name="mySpringBootDemo1" target="1.8" />
+      <module name="MySpringCloud" target="1.8" />
+      <module name="spring-boot-api-project-seed" target="1.8" />
+      <module name="springBoot-Mybatis" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

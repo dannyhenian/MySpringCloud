@@ -1,0 +1,25 @@
+
+####### mybatis-spring包配置使用 #################################
+http://www.mybatis.org/spring/zh/factorybean.html
+http://blog.csdn.net/isea533/article/details/45640319
+
+####### mybatis通用Mapper使用 ####################################
+https://mapperhelper.github.io/docs/
+
+####### MyBatis Generator使用 ###################################
+http://mbg.cndocs.tk/quickstart.html
+http://blog.csdn.net/isea533/article/details/42102297
+http://git.oschina.net/free/Mapper/blob/master/wiki/mapper3/7.UseMBG.md
+
+####### pagehelper分页插件使用################################################
+https://pagehelper.github.io/docs/howtouse/
+
+####### druid-spring-boot-starter使用 #############################
+https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/compute-service/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-simple-provider-user/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-simple-consumer-movie/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-provider-user/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-discovery-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-discovery-eureka-ha/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-ribbon-properties-customizing/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-ribbon-test/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-ribbon-without-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-feign-customizing/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-hystrix-dashboard/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-feign-customizing-without-hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-feign-with-hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-feign-with-hystrix-hystrix-factory/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-ribbon-with-hystrix/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-api-project-seed/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-consumer-movie-ribbon-with-hystrix-propagation/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-hystrix-turbine/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-gateway-zuul-filter/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-gateway-zuul-reg-exp/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-gateway-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-file-upload/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-client/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-server-authc/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-server-encrypt/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-server-encrypt-rsa/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-server-eureka/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

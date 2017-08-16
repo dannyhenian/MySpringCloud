@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon
+server:
+  port: 8010
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://user:password123@localhost:8761/eureka
+    region:
+  instance:
+    prefer-ip-address: true
+ribbon:
+  eureka:
+   enabled: false           #在Ribbon中禁用Eureka使用
+microservice-provider-user:
+  ribbon:
+    listOfServers: localhost:7900       #Ribbon客户端默认为已配置的服务器列表
