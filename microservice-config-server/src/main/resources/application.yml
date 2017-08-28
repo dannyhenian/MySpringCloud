@@ -5,16 +5,18 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/dannyhenian/{application}
-#          uri: https://gitee.com/dannyhenian/config-repo-danny  # 公用
+          username: 447579568@qq.com
+          password: abc447579568
+          uri: https://gitee.com/dannyhenian/config-repo-danny  # 公用
+          search-paths:
+            - foo   # foo路径
+            - bar   # bar路径
 #          clone-on-start: true
-#          username:
-#          password:
 #          repos:
-#            simple: https://git.oschina.net/it-much/simple
+#            simple:  https://gitee.com/dannyhenian/simple
 #            special:
 #              pattern: special*/dev*,special*/test*
-#              uri: https://git.oschina.net/it-much/special
+#              uri:  https://gitee.com/dannyhenian/special
 #          search-paths:
 #            - foo   # foo路径
 #            - bar   # bar路径
