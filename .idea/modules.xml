@@ -8,6 +8,10 @@
       <module fileurl="file://$PROJECT_DIR$/eureka-ribbon/eureka-ribbon.iml" filepath="$PROJECT_DIR$/eureka-ribbon/eureka-ribbon.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-config-client/microservice-config-client.iml" filepath="$PROJECT_DIR$/microservice-config-client/microservice-config-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-config-client-authc/microservice-config-client-authc.iml" filepath="$PROJECT_DIR$/microservice-config-client-authc/microservice-config-client-authc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-config-client-eureka/microservice-config-client-eureka.iml" filepath="$PROJECT_DIR$/microservice-config-client-eureka/microservice-config-client-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-config-client-refresh/microservice-config-client-refresh.iml" filepath="$PROJECT_DIR$/microservice-config-client-refresh/microservice-config-client-refresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-config-client-refresh-bus/microservice-config-client-refresh-bus.iml" filepath="$PROJECT_DIR$/microservice-config-client-refresh-bus/microservice-config-client-refresh-bus.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-config-server/microservice-config-server.iml" filepath="$PROJECT_DIR$/microservice-config-server/microservice-config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-config-server-authc/microservice-config-server-authc.iml" filepath="$PROJECT_DIR$/microservice-config-server-authc/microservice-config-server-authc.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-config-server-encrypt/microservice-config-server-encrypt.iml" filepath="$PROJECT_DIR$/microservice-config-server-encrypt/microservice-config-server-encrypt.iml" />

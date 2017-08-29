@@ -38,6 +38,10 @@
         <option value="$PROJECT_DIR$/microservice-config-server-encrypt/pom.xml" />
         <option value="$PROJECT_DIR$/microservice-config-server-encrypt-rsa/pom.xml" />
         <option value="$PROJECT_DIR$/microservice-config-server-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-client-authc/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-client-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-client-refresh/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-config-client-refresh-bus/pom.xml" />
       </list>
     </option>
   </component>
