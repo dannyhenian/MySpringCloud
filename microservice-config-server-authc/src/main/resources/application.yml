@@ -11,7 +11,7 @@ spring:
     config:
       server:
         git:
-          uri: https://git.oschina.net/it-much/config-repo-51cto-video
-          username: 
-          password: 
+          uri: https://gitee.com/dannyhenian/config-repo-danny
+          username: 447579568@qq.com
+          password: abc447579568
           
