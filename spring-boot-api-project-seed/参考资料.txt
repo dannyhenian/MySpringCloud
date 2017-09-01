@@ -5,6 +5,7 @@ http://blog.csdn.net/isea533/article/details/45640319
 
 ####### mybatis通用Mapper使用 ####################################
 https://mapperhelper.github.io/docs/
+https://github.com/abel533/Mapper
 
 ####### MyBatis Generator使用 ###################################
 http://mbg.cndocs.tk/quickstart.html
@@ -13,6 +14,7 @@ http://git.oschina.net/free/Mapper/blob/master/wiki/mapper3/7.UseMBG.md
 
 ####### pagehelper分页插件使用################################################
 https://pagehelper.github.io/docs/howtouse/
+ https://github.com/pagehelper/Mybatis-PageHelper
 
 ####### druid-spring-boot-starter使用 #############################
 https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
