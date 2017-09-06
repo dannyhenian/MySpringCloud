@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import org.springframework.security.authentication.BadCredentialsException;
 
-import com.svlada.security.exceptions.JwtExpiredTokenException;
-import com.svlada.security.model.Scopes;
+import com.danny.cloud.security.exceptions.JwtExpiredTokenException;
+import com.danny.cloud.security.model.Scopes;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

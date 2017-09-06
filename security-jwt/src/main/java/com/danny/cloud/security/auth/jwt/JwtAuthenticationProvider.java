@@ -11,11 +11,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import com.svlada.security.auth.JwtAuthenticationToken;
-import com.svlada.security.config.JwtSettings;
-import com.svlada.security.model.UserContext;
-import com.svlada.security.model.token.JwtToken;
-import com.svlada.security.model.token.RawAccessJwtToken;
+import com.danny.cloud.security.auth.JwtAuthenticationToken;
+import com.danny.cloud.security.config.JwtSettings;
+import com.danny.cloud.security.model.UserContext;
+import com.danny.cloud.security.model.token.JwtToken;
+import com.danny.cloud.security.model.token.RawAccessJwtToken;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

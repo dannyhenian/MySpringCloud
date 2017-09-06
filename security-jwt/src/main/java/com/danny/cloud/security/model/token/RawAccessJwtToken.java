@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.BadCredentialsException;
 
-import com.svlada.security.exceptions.JwtExpiredTokenException;
+import com.danny.cloud.security.exceptions.JwtExpiredTokenException;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -25,10 +25,7 @@ public class RawAccessJwtToken implements JwtToken {
 
     /**
      * Parses and validates JWT Token signature.
-     * 
-     * @throws BadCredentialsException
-     * @throws JwtExpiredTokenException
-     * 
+     *
      */
     public Jws<Claims> parseClaims(String signingKey) {
         try {
