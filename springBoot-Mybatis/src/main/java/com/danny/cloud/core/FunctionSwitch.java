@@ -9,7 +9,6 @@ package com.danny.cloud.core;/**
 
 public class FunctionSwitch {
     public static boolean isSwitchOpened(String switchName) {
-
         return true;
     }
 }

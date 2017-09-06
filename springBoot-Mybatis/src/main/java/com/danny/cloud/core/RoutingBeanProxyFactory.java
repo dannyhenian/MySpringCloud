@@ -28,23 +28,25 @@ public class RoutingBeanProxyFactory {
     }
 
     static class VersionRoutingMethodInterceptor implements MethodInterceptor {
-        private String classSwitch;
-        private Object beanofSwitchOn;
-        private Object beanofSwitchOff;
+        private String classSwitch;  //hello.switch
+        private Object beanofSwitchOn; //HelloServiceImplV2
+        private Object beanofSwitchOff; //HelloServiceImplV1
 
         public VersionRoutingMethodInterceptor(Class targetClass, Map<String, Object> beans) {
-            String interfaceName = StringUtils.uncapitalize(targetClass.getSimpleName());
+            String interfaceName = StringUtils.uncapitalize(targetClass.getSimpleName());   //首字母小写
             if(targetClass.isAnnotationPresent(RoutingSwitch.class)) {
                 this.classSwitch = ((RoutingSwitch) targetClass.getAnnotation(RoutingSwitch.class)).value();
             }
 
             this.beanofSwitchOn = beans.get(this.buildBeanName(interfaceName,true));
-            this.beanofSwitchOff = beans.get(this.buildBeanName(interfaceName,true));
+            this.beanofSwitchOff = beans.get(this.buildBeanName(interfaceName,false));
 
         }
 
         private String buildBeanName(String interfaceName, boolean isSwitchOn) {
-            return interfaceName + "Impl" +(isSwitchOn ? "v2" : "v1");
+            String beanName = interfaceName + "Impl" +(isSwitchOn ? "V2" : "V1");
+            System.out.println("================"+beanName+"===============");
+            return beanName;
         }
 
         @Override

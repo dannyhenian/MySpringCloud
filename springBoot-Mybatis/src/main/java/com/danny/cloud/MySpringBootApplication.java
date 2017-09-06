@@ -1,10 +1,12 @@
 package com.danny.cloud;
 
 import com.danny.cloud.annotation.ExcludeFromComponentScan;
+import com.danny.cloud.core.RoutingBeanPostProcessor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -19,6 +21,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @ServletComponentScan
 public class MySpringBootApplication {
+    @Bean
+    public RoutingBeanPostProcessor routingBeanPostProcessor() {
+        return new RoutingBeanPostProcessor();
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(MySpringBootApplication.class, args);
 

@@ -11,7 +11,8 @@ import java.lang.reflect.Field;
 import java.util.Map;
 
 /**
- *
+ * BeanPostProcessor 可以修改实例对象
+ * BeanFactoryPostProcessor 可以修改bean的配置信息而BeanPostProcessor不能，且调用比BeanPostProcessor早
  *
  * @author danny
  * @create 2017-09-05 11:28
@@ -33,6 +34,8 @@ public class RoutingBeanPostProcessor implements BeanPostProcessor {
         Class clazz = bean.getClass();
         Field[] fields = clazz.getDeclaredFields();
         for (Field f : fields){
+//            f.setAccessible(true);   //值为 true 则指示反射的对象在使用时应该取消 Java 语言访问检查。值为 false 则指示反射的对象应该实施 Java 语言访问检查。
+//            f.get(bean);    //返回指定对象上此 Field 表示的字段的值
             if(f.isAnnotationPresent(RoutingInjected.class)){
                 if(!f.getType().isInterface()){
                     throw new BeanCreationException("RoutingInjected field must be declared as an interface: "
@@ -51,8 +54,12 @@ public class RoutingBeanPostProcessor implements BeanPostProcessor {
     }
 
     private void handleRoutingInjected(Field field, Object bean, Class type) throws IllegalAccessException{
-        Map<String, Object> candidates = this.applicationContext.getBeansOfType(type);
-        field.setAccessible(true);
+        Map<String, Object> candidates = this.applicationContext.getBeansOfType(type); //获取到的子类必须注册到context中
+        System.out.println("=============="+candidates.size()+"==================");
+        for(String key : candidates.keySet()){
+            System.out.println("================="+key+"---> "+ candidates.get(key));
+        }
+        field.setAccessible(true); //值为 true 则指示反射的对象在使用时应该取消 Java 语言访问检查
         if(candidates.size() == 1){
             field.set(bean,candidates.values().iterator().next());
         } else if (candidates.size() == 2){

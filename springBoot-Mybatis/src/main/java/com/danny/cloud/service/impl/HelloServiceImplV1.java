@@ -3,6 +3,7 @@ package com.danny.cloud.service.impl;/**
  */
 
 import com.danny.cloud.service.HelloService;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 
@@ -11,6 +12,7 @@ import java.lang.reflect.Field;
  * @create 2017-09-05 17:51
  */
 
+@Component
 public class HelloServiceImplV1 implements HelloService{
     @Override
     public void sayHello() {

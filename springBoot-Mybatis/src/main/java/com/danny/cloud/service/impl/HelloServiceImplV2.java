@@ -3,12 +3,13 @@ package com.danny.cloud.service.impl;/**
  */
 
 import com.danny.cloud.service.HelloService;
+import org.springframework.stereotype.Component;
 
 /**
  * @author danny
  * @create 2017-09-05 17:51
  */
-
+@Component
 public class HelloServiceImplV2 implements HelloService {
     @Override
     public void sayHello() {
