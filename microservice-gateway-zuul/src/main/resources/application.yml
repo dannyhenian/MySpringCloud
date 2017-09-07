@@ -33,3 +33,6 @@ ribbon:
 management:
   security:
     enabled: false
+
+
+
