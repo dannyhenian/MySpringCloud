@@ -27,6 +27,7 @@ public class MovieController {
     // http://localhost:7900/simple/
     // VIP virtual IP
     // HAProxy Heartbeat
+
     HttpHeaders headers = new HttpHeaders();
     Enumeration<String> headerNames = req.getHeaderNames();
     while (headerNames.hasMoreElements()) {
