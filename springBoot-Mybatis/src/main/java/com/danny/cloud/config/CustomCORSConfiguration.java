@@ -9,6 +9,7 @@ import org.springframework.web.filter.CorsFilter;
 
 /**
  * Created by danny on 2017-08-10.
+ * http://www.spring4all.com/article/177
  * 跨域配置
  */
 @Configuration
