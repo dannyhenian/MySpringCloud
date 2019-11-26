@@ -1,5 +1,5 @@
 server:
-  port: 7901
+  port: 7900
 spring:
   jpa:
     generate-ddl: false
@@ -13,12 +13,13 @@ spring:
   application:
     name: microservice-provider-user
 logging:
-  level:
-    root: INFO
-    org.hibernate: INFO
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-    com.danny: DEBUG
+  config: classpath:logback.xml
+#  level:
+#    root: INFO
+#    org.hibernate: INFO
+#    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+#    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+#    com.danny: DEBUG
 eureka:
   client:
     healthcheck:       # 需要引入spring-boot-starter-actuator

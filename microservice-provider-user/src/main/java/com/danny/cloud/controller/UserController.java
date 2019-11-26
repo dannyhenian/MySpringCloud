@@ -3,6 +3,7 @@ package com.danny.cloud.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ssx.logging.alarm.AlarmLogHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -20,6 +21,7 @@ import com.netflix.discovery.EurekaClient;
 
 @RestController
 public class UserController {
+  private static AlarmLogHandler alarmLogger = AlarmLogHandler.getLogger(UserController.class);
 
   @Autowired
   private UserRepository userRepository;
@@ -32,6 +34,7 @@ public class UserController {
 
   @GetMapping("/simple/{id}")
   public User findById(@PathVariable Long id) {
+    alarmLogger.warn("测试告警");
     return this.userRepository.findOne(id);
   }
 
