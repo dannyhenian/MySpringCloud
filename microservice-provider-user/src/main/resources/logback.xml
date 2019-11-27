@@ -3,10 +3,10 @@
     <!--    <springProperty scope="context" name="contextName" source="spring.application.name"/>-->
     <!--    <springProperty scope="context" name="logPath" source="logback.logpath"/>-->
     <property name="contextName" value="Log-Demo" />
-    <property name="logPath" value="D:/log2" />
-    <property name="logPath" value="D:/log2" />
-    <property name="logPath" value="D:/log2" />
-    <property name="logPath" value="D:/log2" />
+    <property name="system_log_Path" value="system_logs" />
+    <property name="msglog_Path" value="msg_logs" />
+    <property name="alarm_log_Path" value="alarm_logs" />
+    <property name="business_log_Path" value="business_logs" />
     <contextName>${contextName}</contextName>
     <property name="LOG_HOME" value="${logPath}/${contextName}" />
 
