@@ -3,7 +3,11 @@ package com.danny.cloud.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ssx.logging.alarm.AlarmLogHandler;
+import com.ssx.logging.logHandler.AlarmLogHandler;
+import com.ssx.logging.logHandler.BusinessLogHandler;
+import com.ssx.logging.logHandler.MessageLogHandler;
+import com.ssx.logging.logHandler.SystemLogHandler;
+import com.ssx.logging.model.LogBaseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -21,7 +25,10 @@ import com.netflix.discovery.EurekaClient;
 
 @RestController
 public class UserController {
+  private static SystemLogHandler systemLogger = SystemLogHandler.getLogger(UserController.class);
+  private static MessageLogHandler messageLogger = MessageLogHandler.getLogger(UserController.class);
   private static AlarmLogHandler alarmLogger = AlarmLogHandler.getLogger(UserController.class);
+  private static BusinessLogHandler businessLogger = BusinessLogHandler.getLogger(UserController.class);
 
   @Autowired
   private UserRepository userRepository;
@@ -34,7 +41,18 @@ public class UserController {
 
   @GetMapping("/simple/{id}")
   public User findById(@PathVariable Long id) {
-    alarmLogger.warn("测试告警");
+    systemLogger.info("系统日志");
+    messageLogger.info("消息日志","20000");
+    alarmLogger.warn("测试告警", "40000");
+
+    LogBaseModel logVo = new LogBaseModel();
+    logVo.setSys("01");
+    logVo.setBusinessCode("001");
+    logVo.setActivityCode("01001");
+    logVo.setTransID("010010100120191127120000");
+
+    businessLogger.info("测试告警", "40000", logVo);
+
     return this.userRepository.findOne(id);
   }
 

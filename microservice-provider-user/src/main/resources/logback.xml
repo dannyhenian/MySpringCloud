@@ -4,10 +4,14 @@
     <!--    <springProperty scope="context" name="logPath" source="logback.logpath"/>-->
     <property name="contextName" value="Log-Demo" />
     <property name="logPath" value="D:/log2" />
+    <property name="logPath" value="D:/log2" />
+    <property name="logPath" value="D:/log2" />
+    <property name="logPath" value="D:/log2" />
     <contextName>${contextName}</contextName>
     <property name="LOG_HOME" value="${logPath}/${contextName}" />
-  <!--  <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %X{reqId} %X{serverIp} %X{serverName} %-5level %logger{100} - %msg%n" />-->
-    <property name="LOG_PATTERN" value="%msg%n" />
+
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%level] -%msg%n" />
+
     <!-- info日志 appender  -->
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -20,7 +24,7 @@
             <pattern>${LOG_PATTERN}</pattern>
             <charset class="java.nio.charset.Charset">UTF-8</charset>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
@@ -35,7 +39,7 @@
             <pattern>${LOG_PATTERN}</pattern>
             <charset class="java.nio.charset.Charset">UTF-8</charset>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>WARN</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
@@ -50,18 +54,101 @@
             <pattern>${LOG_PATTERN}</pattern>
             <charset class="java.nio.charset.Charset">UTF-8</charset>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter"><!-- 只打印错误日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
+    <!-- 控制台日志 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${LOG_PATTERN}</pattern>
             <charset class="java.nio.charset.Charset">UTF-8</charset>
         </encoder>
     </appender>
+
+    <!-- 告警日志记录文件（包含WARN和ERROR级别）begin  -->
+    <appender name="ALARM_APPENDER_WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/%d{yyyyMMdd}/alarm.log.%d{yyyyMMdd}.%i</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="ALARM_APPENDER_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/%d{yyyyMMdd}/alarm.log.%d{yyyyMMdd}.%i</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+    <!-- 告警日志记录文件（包含WARN和ERROR级别）end  -->
+
+    <!-- 报文日志记录文件begin  -->
+    <appender name="MESSAGE_APPENDER_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/%d{yyyyMMdd}/message.log.%d{yyyyMMdd}.%i</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%level %date %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <appender name="MESSAGE_APPENDER_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/%d{yyyyMMdd}/message.log.%d{yyyyMMdd}.%i</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>20MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%level %date %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 报文日志记录文件end  -->
+
     <logger name="com.danny" level="DEBUG"/>
     <logger name="org.springframework" level="INFO"/>
     <!--日志打印的包的范围，及分类日志文件存储 -->
@@ -73,7 +160,27 @@
         <appender-ref ref="INFO" />
     </logger>
 
-    <logger name="com.ssx.logging.alarm" additivity="false">
+    <logger name="com.ssx.logging.logHandler.SystemLogHandler" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="INFO" />
+    </logger>
+    <logger name="com.ssx.logging.logHandler.MessageLogHandler" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="DEBUG"/>
+        <appender-ref ref="INFO" />
+    </logger>
+    <logger name="com.ssx.logging.logHandler.AlarmLogHandler" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ERROR"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="INFO" />
+    </logger>
+    <logger name="com.ssx.logging.logHandler.BusinessLogHandler" additivity="false">
         <level value="DEBUG" />
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ERROR"/>
