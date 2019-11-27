@@ -25,10 +25,10 @@ import com.netflix.discovery.EurekaClient;
 
 @RestController
 public class UserController {
-  private static SystemLogHandler systemLogger = SystemLogHandler.getLogger(UserController.class);
-  private static MessageLogHandler messageLogger = MessageLogHandler.getLogger(UserController.class);
+//  private static SystemLogHandler systemLogger = SystemLogHandler.getLogger(UserController.class);
+//  private static MessageLogHandler messageLogger = MessageLogHandler.getLogger(UserController.class);
   private static AlarmLogHandler alarmLogger = AlarmLogHandler.getLogger(UserController.class);
-  private static BusinessLogHandler businessLogger = BusinessLogHandler.getLogger(UserController.class);
+//  private static BusinessLogHandler businessLogger = BusinessLogHandler.getLogger(UserController.class);
 
   @Autowired
   private UserRepository userRepository;
@@ -41,9 +41,10 @@ public class UserController {
 
   @GetMapping("/simple/{id}")
   public User findById(@PathVariable Long id) {
-    systemLogger.info("系统日志");
-    messageLogger.info("消息日志","20000");
+//    systemLogger.info("系统日志");
+//    messageLogger.info("消息日志","20000");
     alarmLogger.warn("测试告警", "40000");
+    alarmLogger.error("测试错误", "50000");
 
     LogBaseModel logVo = new LogBaseModel();
     logVo.setSys("01");
@@ -51,7 +52,7 @@ public class UserController {
     logVo.setActivityCode("01001");
     logVo.setTransID("010010100120191127120000");
 
-    businessLogger.info("测试告警", "40000", logVo);
+//    businessLogger.info("测试告警", "40000", logVo);
 
     return this.userRepository.findOne(id);
   }
