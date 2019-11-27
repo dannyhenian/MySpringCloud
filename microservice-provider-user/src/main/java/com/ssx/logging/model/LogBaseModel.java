@@ -8,14 +8,13 @@ package com.ssx.logging.model;
  */
 
 public class LogBaseModel {
-    /******* 系统信息 *******/
+    /* 通用日志 */
     // 服务实例名
     private String service;
     // 日志级别
     private String level;
     // 操作时间
     private String startTime;
-
     // 主机名
     private String hostName;
     // 主机IP
@@ -26,6 +25,24 @@ public class LogBaseModel {
     private String methodName;
     // 消息
     private String msg;
+
+    // 返回码
+    private String levelCode;
+
+    /* 业务日志 */
+    // 系统代码
+    private String sys;
+    // 业务代码
+    private String businessCode;
+    // 操作码
+    private String ActivityCode;
+    // 流水号
+    private String transID;
+
+    // 请求体
+    private Object req;
+    // 返回体
+    private Object resp;
 
     public String getService() {
         return service;
@@ -90,4 +107,61 @@ public class LogBaseModel {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    public String getLevelCode() {
+        return levelCode;
+    }
+
+    public void setLevelCode(String levelCode) {
+        this.levelCode = levelCode;
+    }
+
+    public String getSys() {
+        return sys;
+    }
+
+    public void setSys(String sys) {
+        this.sys = sys;
+    }
+
+    public String getBusinessCode() {
+        return businessCode;
+    }
+
+    public void setBusinessCode(String businessCode) {
+        this.businessCode = businessCode;
+    }
+
+    public String getActivityCode() {
+        return ActivityCode;
+    }
+
+    public void setActivityCode(String activityCode) {
+        ActivityCode = activityCode;
+    }
+
+    public String getTransID() {
+        return transID;
+    }
+
+    public void setTransID(String transID) {
+        this.transID = transID;
+    }
+
+    public Object getReq() {
+        return req;
+    }
+
+    public void setReq(Object req) {
+        this.req = req;
+    }
+
+    public Object getResp() {
+        return resp;
+    }
+
+    public void setResp(Object resp) {
+        this.resp = resp;
+    }
+
 }
