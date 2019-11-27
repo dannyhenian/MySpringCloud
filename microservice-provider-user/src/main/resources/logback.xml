@@ -2,13 +2,20 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="true" >
     <!--    <springProperty scope="context" name="contextName" source="spring.application.name"/>-->
     <!--    <springProperty scope="context" name="logPath" source="logback.logpath"/>-->
-    <property name="contextName" value="Log-Demo" />
+    <property name="APP_Name" value="member-server" />
+    <property name="LOG_HOME" value="D:\\log2" />
+
     <property name="system_log_Path" value="system_logs" />
     <property name="msglog_Path" value="msg_logs" />
     <property name="alarm_log_Path" value="alarm_logs" />
     <property name="business_log_Path" value="business_logs" />
-    <contextName>${contextName}</contextName>
-    <property name="LOG_HOME" value="${logPath}/${contextName}" />
+
+    <property name="system" value="system" />
+    <property name="msglog" value="msg" />
+    <property name="alarm" value="alarm" />
+    <property name="business" value="business" />
+
+    <contextName>${APP_Name}</contextName>
 
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%level] -%msg%n" />
 
@@ -71,14 +78,14 @@
     <!-- 告警日志记录文件（包含WARN和ERROR级别）begin  -->
     <appender name="ALARM_APPENDER_WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/%d{yyyyMMdd}/alarm.log.%d{yyyyMMdd}.%i</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/${alarm_log_Path}/${APP_Name}_${alarm}_warn_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>20MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
             <maxHistory>365</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
             <charset>UTF-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -90,14 +97,14 @@
 
     <appender name="ALARM_APPENDER_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/%d{yyyyMMdd}/alarm.log.%d{yyyyMMdd}.%i</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/${alarm_log_Path}/${APP_Name}_${alarm}_error_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>20MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
             <maxHistory>365</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
             <charset>UTF-8</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -108,59 +115,20 @@
     </appender>
     <!-- 告警日志记录文件（包含WARN和ERROR级别）end  -->
 
-    <!-- 报文日志记录文件begin  -->
-    <appender name="MESSAGE_APPENDER_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/%d{yyyyMMdd}/message.log.%d{yyyyMMdd}.%i</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>20MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-            <maxHistory>365</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%level %date %msg%n</pattern>
-            <charset>UTF-8</charset>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>INFO</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
 
-    <appender name="MESSAGE_APPENDER_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>./logs/%d{yyyyMMdd}/message.log.%d{yyyyMMdd}.%i</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>20MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-            <maxHistory>365</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%level %date %msg%n</pattern>
-            <charset>UTF-8</charset>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.LevelFilter">
-            <level>DEBUG</level>
-            <onMatch>ACCEPT</onMatch>
-            <onMismatch>DENY</onMismatch>
-        </filter>
-    </appender>
-
-    <!-- 报文日志记录文件end  -->
 
     <logger name="com.danny" level="DEBUG"/>
     <logger name="org.springframework" level="INFO"/>
     <!--日志打印的包的范围，及分类日志文件存储 -->
-    <logger name="com.danny" additivity="false">
+ <!--   <logger name="com.danny" additivity="false">
         <level value="DEBUG" />
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ERROR"/>
         <appender-ref ref="WARN"/>
         <appender-ref ref="INFO" />
-    </logger>
+    </logger>-->
 
-    <logger name="com.ssx.logging.logHandler.SystemLogHandler" additivity="false">
+<!--    <logger name="com.ssx.logging.logHandler.SystemLogHandler" additivity="false">
         <level value="DEBUG" />
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ERROR"/>
@@ -172,21 +140,20 @@
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="DEBUG"/>
         <appender-ref ref="INFO" />
-    </logger>
+    </logger>-->
     <logger name="com.ssx.logging.logHandler.AlarmLogHandler" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ALARM_APPENDER_WARN"/>
+        <appender-ref ref="ALARM_APPENDER_ERROR"/>
+    </logger>
+<!--    <logger name="com.ssx.logging.logHandler.BusinessLogHandler" additivity="false">
         <level value="DEBUG" />
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ERROR"/>
         <appender-ref ref="WARN"/>
         <appender-ref ref="INFO" />
-    </logger>
-    <logger name="com.ssx.logging.logHandler.BusinessLogHandler" additivity="false">
-        <level value="DEBUG" />
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="ERROR"/>
-        <appender-ref ref="WARN"/>
-        <appender-ref ref="INFO" />
-    </logger>
+    </logger>-->
     <root level="INFO" additivity="false">
         <appender-ref ref="STDOUT" />
     </root>
