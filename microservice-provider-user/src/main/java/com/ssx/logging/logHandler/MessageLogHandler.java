@@ -27,7 +27,7 @@ public class MessageLogHandler extends BaseLogger {
     public void info(String msgContext, String levelCode) {
         LogLocation logLocation = new LogLocation(new Throwable(), getClassName());
         String tmp = super.convMessage(LOG_LEVEL_INFO, levelCode, msgContext, logLocation.getLineNumber());
-        logger.warn(tmp);
+        logger.info(tmp);
     }
 
 //    public void warn(String msgContext, String levelCode) {
@@ -39,13 +39,13 @@ public class MessageLogHandler extends BaseLogger {
 //    public void error(String msgContext, String levelCode) {
 //        LogLocation logLocation = new LogLocation(new Throwable(), getClassName());
 //        String tmp = super.convMessage(LOG_LEVEL_ERROR, levelCode, msgContext, logLocation.getLineNumber());
-//        logger.warn(tmp);
+//        logger.error(tmp);
 //    }
 
     public void debug(String msgContext, String levelCode) {
         LogLocation logLocation = new LogLocation(new Throwable(), getClassName());
         String tmp = super.convMessage(LOG_LEVEL_DEBUG, levelCode, msgContext, logLocation.getLineNumber());
-        logger.warn(tmp);
+        logger.debug(tmp);
     }
 
 }

@@ -26,7 +26,7 @@ public class BusinessLogHandler extends BaseLogger {
     public void info(String msgContext, String levelCode, LogBaseModel logVo) {
         LogLocation logLocation = new LogLocation(new Throwable(), getClassName());
         String tmp = super.convMessage(LOG_LEVEL_INFO, levelCode, logVo, msgContext, logLocation.getLineNumber());
-        logger.warn(tmp);
+        logger.info(tmp);
     }
 
     public void warn(String msgContext, String levelCode, LogBaseModel logVo) {
@@ -38,12 +38,12 @@ public class BusinessLogHandler extends BaseLogger {
     public void error(String msgContext, String levelCode, LogBaseModel logVo) {
         LogLocation logLocation = new LogLocation(new Throwable(), getClassName());
         String tmp = super.convMessage(LOG_LEVEL_ERROR, levelCode, logVo, msgContext, logLocation.getLineNumber());
-        logger.warn(tmp);
+        logger.error(tmp);
     }
 
     public void debug(String msgContext, String levelCode, LogBaseModel logVo) {
         LogLocation logLocation = new LogLocation(new Throwable(), getClassName());
         String tmp = super.convMessage(LOG_LEVEL_DEBUG, levelCode, logVo, msgContext, logLocation.getLineNumber());
-        logger.warn(tmp);
+        logger.debug(tmp);
     }
 }
