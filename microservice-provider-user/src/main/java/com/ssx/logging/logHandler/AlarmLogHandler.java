@@ -19,7 +19,7 @@ public class AlarmLogHandler extends BaseLogger {
 
 	public void warn(String msgContext, String levelCode) {
 		LogLocation logLocation = new LogLocation(new Throwable(), getClassName());
-		String tmp = super.convMessage(LOG_LEVEL_ERROR, levelCode, msgContext, logLocation.getLineNumber());
+		String tmp = super.convMessage(LOG_LEVEL_WARNING, levelCode, msgContext, logLocation.getLineNumber());
 		logger.warn(tmp);
 	}
 
