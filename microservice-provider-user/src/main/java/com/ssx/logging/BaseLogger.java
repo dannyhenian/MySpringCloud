@@ -64,7 +64,7 @@ public class BaseLogger {
         logBaseModel.setHostName(getHostName());
         logBaseModel.setHostIp(getHostIp() + "_" + getLocalPort());
         logBaseModel.setLevel(p_loglevel);
-        logBaseModel.setLevel(levelCode);
+        logBaseModel.setLevelCode(levelCode);
         logBaseModel.setStartTime(getDateyyyyMMddHHmmss());
         logBaseModel.setMsg(msgContext);
         logBaseModel.setClassName(getClassName() + "["+lineNumber+"]");
@@ -79,7 +79,7 @@ public class BaseLogger {
         logBaseModel.setHostName(getHostName());
         logBaseModel.setHostIp(getHostIp() + "_" + getLocalPort());
         logBaseModel.setLevel(p_loglevel);
-        logBaseModel.setLevel(levelCode);
+        logBaseModel.setLevelCode(levelCode);
         logBaseModel.setStartTime(getDateyyyyMMddHHmmss());
         logBaseModel.setMsg(msgContext);
         logBaseModel.setClassName(getClassName() + "["+lineNumber+"]");
