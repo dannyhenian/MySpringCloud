@@ -1,9 +1,17 @@
-security:
-  basic:
-    enabled: true    #开启密码验证需引入spring-boot-starter-security
-  user:
-    name: user
-    password: password123
+#security:
+#  basic:
+#    enabled: true    #开启密码验证需引入spring-boot-starter-security
+#  user:
+#    name: user
+#    password: password123
+
+spring:
+  application:
+    name: eureka-server
+  security:
+    user:
+      name: user
+      password: password123
 server:
   port: 8761
 eureka:
