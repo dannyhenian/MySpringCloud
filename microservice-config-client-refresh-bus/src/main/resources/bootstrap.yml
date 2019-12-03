@@ -1,16 +1,26 @@
 spring:
+  application:
+      name: foobar
   cloud:
     config:
       uri: http://localhost:8080
       profile: dev
-      label: master   # 当configserver的后端存储是Git时，默认就是master 
+      label: master   # 当configserver的后端存储是Git时，默认就是master
+
     bus:
       trace:
         enabled: true
-  application:
-    name: foobar
+
   rabbitmq:
-    host: localhost
+    host: 192.168.2.11
     port: 5672
     username: guest
     password: guest
+
+management:                    #SpringCloud 1.5版本暴露接口，暴露/bus-refresh接口
+#  security:
+#    enabled: false
+  endpoints:                  #SpringCloud 2.0.0版本以后暴露接口方式
+    web:
+      exposure:
+        include: bus-refresh
