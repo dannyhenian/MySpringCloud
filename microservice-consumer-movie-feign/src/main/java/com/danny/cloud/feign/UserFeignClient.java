@@ -9,7 +9,8 @@ import com.danny.cloud.entity.User;
 
 @FeignClient("microservice-provider-user")
 public interface UserFeignClient {
-  @Headers("X-Auth-Token: {id}")
+//  @Headers("X-Auth-Token: {id}")
+  @Headers("sys: 001,")
   @RequestMapping(value = "/simple/{id}", method = RequestMethod.GET)
   public User findById(@PathVariable("id") Long id); // 两个坑：1. @GetMapping不支持   2. @PathVariable得设置value
                      //@RequestParam
