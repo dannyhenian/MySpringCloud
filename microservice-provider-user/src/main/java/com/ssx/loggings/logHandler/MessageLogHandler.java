@@ -1,10 +1,10 @@
-package com.ssx.logging.logHandler;
+package com.ssx.loggings.logHandler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ssx.logging.BaseLogger;
-import com.ssx.logging.LogLocation;
+import com.ssx.loggings.BaseLogger;
+import com.ssx.loggings.LogLocation;
 
 /**
  * 消息日志

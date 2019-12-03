@@ -1,4 +1,4 @@
-package com.ssx.logging;
+package com.ssx.loggings;
 
 import java.io.PrintWriter;
 import java.io.Serializable;

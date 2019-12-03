@@ -1,9 +1,7 @@
-package com.ssx.logging;
+package com.ssx.loggings;
 
 import com.alibaba.fastjson.JSON;
-import com.ssx.logging.model.LogBaseModel;
-import com.ssx.logging.utils.BeanUtils;
-import org.apache.commons.lang.StringUtils;
+import com.ssx.loggings.utils.BeanUtils;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -46,7 +44,7 @@ public class BaseLogger {
     private String methodName;
 
     protected String convMessage(final String p_loglevel, final String msgContext, final String lineNumber) {
-        LogBaseModel logBaseModel = new LogBaseModel();
+        com.ssx.loggings.model.LogBaseModel logBaseModel = new com.ssx.loggings.model.LogBaseModel();
         logBaseModel.setService(getService());
         logBaseModel.setHostName(getHostName());
         logBaseModel.setHostIp(getHostIp() + "_" + getLocalPort());
@@ -59,7 +57,7 @@ public class BaseLogger {
     }
 
     protected String convMessage(final String p_loglevel,final String levelCode, final String msgContext, final String lineNumber) {
-        LogBaseModel logBaseModel = new LogBaseModel();
+        com.ssx.loggings.model.LogBaseModel logBaseModel = new com.ssx.loggings.model.LogBaseModel();
         logBaseModel.setService(getService());
         logBaseModel.setHostName(getHostName());
         logBaseModel.setHostIp(getHostIp() + "_" + getLocalPort());
@@ -72,8 +70,8 @@ public class BaseLogger {
         return JSON.toJSON(logBaseModel).toString().replaceAll("(\r\n|\r|\n|\n\r)", "<br>");
     }
 
-    protected String convMessage(final String p_loglevel,final String levelCode,final LogBaseModel logVo, final String msgContext, final String lineNumber) {
-        LogBaseModel logBaseModel = new LogBaseModel();
+    protected String convMessage(final String p_loglevel, final String levelCode, final com.ssx.loggings.model.LogBaseModel logVo, final String msgContext, final String lineNumber) {
+        com.ssx.loggings.model.LogBaseModel logBaseModel = new com.ssx.loggings.model.LogBaseModel();
         BeanUtils.copyProperties(logVo,logBaseModel);
         logBaseModel.setService(getService());
         logBaseModel.setHostName(getHostName());
@@ -137,7 +135,7 @@ public class BaseLogger {
     }
 
     public String getDateyyyyMMddHHmmss() {
-        SimpleDateFormat myFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.ms");
         Calendar calendar = Calendar.getInstance();
         return myFormat.format(calendar.getTime());
     }

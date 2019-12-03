@@ -70,6 +70,12 @@
 			<version>1.2.44</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.ssx</groupId>
+			<artifactId>system-logging</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
 
 	</dependencies>
 

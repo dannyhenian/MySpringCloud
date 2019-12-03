@@ -1,8 +1,8 @@
-package com.ssx.logging.logHandler;
+package com.ssx.loggings.logHandler;
 
-import com.ssx.logging.BaseLogger;
-import com.ssx.logging.LogLocation;
-import com.ssx.logging.model.LogBaseModel;
+import com.ssx.loggings.BaseLogger;
+import com.ssx.loggings.LogLocation;
+import com.ssx.loggings.model.LogBaseModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

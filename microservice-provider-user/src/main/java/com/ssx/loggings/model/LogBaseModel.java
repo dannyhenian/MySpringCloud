@@ -1,4 +1,4 @@
-package com.ssx.logging.model;
+package com.ssx.loggings.model;
 
 /**
  * 日志输出基类
@@ -35,7 +35,7 @@ public class LogBaseModel {
     // 业务代码
     private String businessCode;
     // 操作码
-    private String ActivityCode;
+    private String activityCode;
     // 流水号
     private String transID;
 
@@ -133,11 +133,11 @@ public class LogBaseModel {
     }
 
     public String getActivityCode() {
-        return ActivityCode;
+        return activityCode;
     }
 
     public void setActivityCode(String activityCode) {
-        ActivityCode = activityCode;
+        this.activityCode = activityCode;
     }
 
     public String getTransID() {

@@ -1,4 +1,4 @@
-package com.ssx.logging.utils;
+package com.ssx.loggings.utils;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeansException;
@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
- * 日志基类
+ *
  *
  * @author danny
  * @create 2019-11-26 14:47
