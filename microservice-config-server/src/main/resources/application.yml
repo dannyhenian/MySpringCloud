@@ -8,7 +8,7 @@ spring:
           username: 447579568@qq.com
           password: abc447579568
           uri: https://gitee.com/dannyhenian/config-repo-danny  # 公用
-          search-paths:
+          search-paths:  #search-paths表示仓库下的子目录
             - foo   # foo路径
             - bar   # bar路径
 #          clone-on-start: true
