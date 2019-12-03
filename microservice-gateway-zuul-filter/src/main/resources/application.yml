@@ -9,8 +9,9 @@ eureka:
       defaultZone: http://user:password123@localhost:8761/eureka
   instance:
     prefer-ip-address: true
-    
-    
+
+#zuul.PreZuulFilter.pre.disable=true  #禁用过滤器
+
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
 ribbon:
   ConnectTimeout: 3000

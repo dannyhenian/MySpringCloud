@@ -13,7 +13,7 @@ public class PreZuulFilter extends ZuulFilter {
 
   //返回为true，则run()会被执行；返回为false，则run()不会被执行
   @Override
-  public boolean shouldFilter() {
+  public boolean shouldFilter() {  // 判断是否需要过滤
     return true;
   }
 
@@ -23,6 +23,7 @@ public class PreZuulFilter extends ZuulFilter {
     HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
     String host = request.getRemoteHost();
     PreZuulFilter.LOGGER.info("请求的host:{}", host);
+    PreZuulFilter.LOGGER.info(String.format("send %srequest to %s",request.getMethod(),request.getRequestURL().toString()));
     return null;
   }
 

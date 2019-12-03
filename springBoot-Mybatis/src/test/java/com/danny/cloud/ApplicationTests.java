@@ -23,6 +23,7 @@ public class ApplicationTests {
 
     @Test
     public void contextLoads() {
+       System.out.println();
         List<City>  list  = cityMapper.getAll();
         for (City vo: list) {
             System.out.println(vo.toString());

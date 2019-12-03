@@ -1,0 +1,31 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          username: 447579568@qq.com
+          password: abc447579568
+          uri: https://gitee.com/dannyhenian/config-repo-danny  # 公用
+          search-paths:  #search-paths表示仓库下的子目录
+            - foo   # foo路径
+            - bar   # bar路径
+    bus:
+      refresh:
+        enabled: true
+  rabbitmq:
+    host: 192.168.2.11
+    port: 5672
+    username: guest
+    password: guest
+
+management:                    #SpringCloud 1.5版本暴露接口，暴露/bus-refresh接口
+#  security:
+#    enabled: false
+  endpoints:                  #SpringCloud 2.0.0版本以后暴露接口方式
+    web:
+      exposure:
+        include: "*"   #refresh
+
+# http://localhost:8080/actuator/bus-refresh  post刷新修改  在Git-setting-WebHooks 设置刷新URL,实现自动刷新

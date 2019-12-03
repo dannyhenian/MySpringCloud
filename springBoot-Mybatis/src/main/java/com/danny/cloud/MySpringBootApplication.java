@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeFromComponentScan.class)})
 @MapperScan(basePackages = "com.danny.cloud.mapper")
 @EnableTransactionManagement
-@ServletComponentScan
+@ServletComponentScan  //开启servlet注解
 public class MySpringBootApplication {
     @Bean
     public RoutingBeanPostProcessor routingBeanPostProcessor() {

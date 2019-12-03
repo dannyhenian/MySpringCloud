@@ -1,9 +1,6 @@
 spring:
   application:
     name: microservice-gateway-zuul
-  mvc:
-    view:
-      prefix:
 server:
   port: 8040
 eureka:
@@ -12,27 +9,15 @@ eureka:
       defaultZone: http://user:password123@localhost:8761/eureka
   instance:
     prefer-ip-address: true
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+zuul:
+  routes:
+    abc:
+      path: /user-url/**
+      service-id: microservice-provider-user
 ribbon:
-  ConnectTimeout: 3000
-  ReadTimeout: 60000
-#zuul:
-#  routes:
-#    microservice-provider-user: /user/**
-##    microservice-consumer-movie-ribbon-with-hystrix: /m/**
-#  ignoredServices: '*'
-##  ignoredServices: microservice-consumer-movie-ribbon-with-hystrix
-
-#zuul:
-#  routes:
-#    abc:
-#      path: /user-path/**
-##      serviceId: microservice-provider-user
-#      url: http://127.0.0.1:7900/
-
-management:
-  security:
+  eureka:
     enabled: false
-
-
-
+microservice-provider-user:     # 这边是ribbon要请求的微服务的serviceId
+  ribbon:
+    listOfServers: http://localhost:7900
+#    listOfServers: http://localhost:7900,http://localhost:7901

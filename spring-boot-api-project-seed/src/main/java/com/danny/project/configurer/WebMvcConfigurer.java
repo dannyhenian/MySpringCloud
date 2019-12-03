@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
+import com.danny.project.base.IdempotencyInterceptor;
 import com.danny.project.core.Result;
 import com.danny.project.core.ResultCode;
 import com.danny.project.core.ServiceException;
@@ -12,6 +13,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -35,6 +37,7 @@ import java.util.List;
 
 /**
  * Spring MVC 配置
+ * https://www.jianshu.com/p/3bd687e9d1e7
  */
 @Configuration
 public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
@@ -42,6 +45,9 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     private final Logger logger = LoggerFactory.getLogger(WebMvcConfigurer.class);
     @Value("${spring.profiles.active}")
     private String env;//当前激活的配置文件
+
+    @Autowired(required = false)
+    private IdempotencyInterceptor idempotencyFilter;
 
     //使用阿里 FastJson 作为JSON MessageConverter
     @Override
@@ -122,6 +128,12 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
                 }
             });
         }
+
+        if(null!=idempotencyFilter){
+            registry.addInterceptor(idempotencyFilter).excludePathPatterns(idempotencyFilter.getExcludePathPatterns()).addPathPatterns(idempotencyFilter.getPathPatterns());//幂等请求
+        }
+        super.addInterceptors(registry);
+
     }
 
     private void responseResult(HttpServletResponse response, Result result) {
