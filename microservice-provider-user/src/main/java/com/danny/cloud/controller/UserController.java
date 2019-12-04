@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.common.collect.Lists;
+//import com.google.common.collect.Lists;
 import com.danny.cloud.entity.User;
 import com.danny.cloud.repository.UserRepository;
 import com.netflix.appinfo.InstanceInfo;
@@ -65,7 +65,8 @@ public class UserController {
 
 //    businessLogger.info("测试告警", "40000", logVo);
 
-    return this.userRepository.findOne(id);
+//    return this.userRepository.findOne(id);
+    return this.userRepository.getOne(id);
 
   }
 
@@ -77,8 +78,9 @@ public class UserController {
 
   @GetMapping("/instance-info")
   public ServiceInstance showInfo() {
-    ServiceInstance localServiceInstance = this.discoveryClient.getLocalServiceInstance();
-    return localServiceInstance;
+//    ServiceInstance localServiceInstance = this.discoveryClient.getLocalServiceInstance();
+
+    return null;
   }
 
   @PostMapping("/user")
@@ -94,7 +96,7 @@ public class UserController {
 
   @GetMapping("/list-all")
   public List<User> listAll() {
-    ArrayList<User> list = Lists.newArrayList();
+    ArrayList<User> list = new ArrayList();
     User user = new User(1L, "zhangsan");
     User user2 = new User(2L, "zhangsan");
     User user3 = new User(3L, "zhangsan");
