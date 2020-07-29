@@ -91,6 +91,15 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
         </dependency>
+        <!--
+        https://github.com/housepower/ClickHouse-Native-JDBC
+        -->
+        <dependency>
+            <groupId>com.github.housepower</groupId>
+            <artifactId>clickhouse-native-jdbc</artifactId>
+            <version>2.1-stable</version>
+        </dependency>
+
 
     </dependencies>
 
